@@ -1,7 +1,6 @@
 const readline = require('readline-sync')
 const Parser = require('rss-parser');
 const robots = {
-  //userInput: require('./robots/user-input.js'),
   text: require('./robots/text.js')
 }
 
@@ -13,7 +12,6 @@ async function start () {
   content.searchTerm = await askAndReturnSearchTerm()
   content.prefix = askAndReturnPrefix()
 
-  //robots.userInput(content)
   await robots.text(content)
 
   async function askAndReturnSearchTerm () {
