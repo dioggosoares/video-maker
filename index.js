@@ -19,7 +19,7 @@ async function start () {
   async function askAndReturnSearchTerm () {
     const response = readline.question('Type a Wikipedia search term or G to fetch google trends: ')
 
-    return (response.toUpperCase() === 'GT') ?  await askAndReturnTrend() : response
+    return (response.toUpperCase() === 'G') ?  await askAndReturnTrend() : response
 
   }
 
