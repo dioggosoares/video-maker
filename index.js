@@ -14,19 +14,19 @@ async function start () {
   content.prefix = askAndReturnPrefix()
 
   //robots.userInput(content)
-  robots.text(content)
+  await robots.text(content)
 
   async function askAndReturnSearchTerm () {
-    const response = readline.question('Type a Wikipedia search term or G to fetch google trends: ')
+    const response = readline.question('Escreva um termo de busca da Wikipedia ou GT para buscar no google trends: ')
 
-    return (response.toUpperCase() === 'G') ?  await askAndReturnTrend() : response
+    return (response.toUpperCase() === 'GT') ?  await askAndReturnTrend() : response
 
   }
 
   async function askAndReturnTrend() {
-    console.log('Please Wait...')
+    console.log('Favor aguarde...')
     const trends = await getGoogleTrends()
-    const choice = readline.keyInSelect(trends, 'Choose your trend:')
+    const choice = readline.keyInSelect(trends, 'Escolha o assunto:')
 
     return trends[choice]
 
@@ -39,8 +39,8 @@ async function start () {
   }
 
   function askAndReturnPrefix () {
-    const prefixes = ['Who is', 'What is', 'The history of']
-    const selectedPrefixIndex = readline.keyInSelect(prefixes, 'Choose one option: ')
+    const prefixes = ['Quem é', 'O que é', 'A história de']
+    const selectedPrefixIndex = readline.keyInSelect(prefixes, 'Escolha uma opção: ')
     const selectedPrefixText = prefixes[selectedPrefixIndex]
 
     return selectedPrefixText
